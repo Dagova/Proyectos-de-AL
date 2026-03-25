@@ -11,8 +11,8 @@
             "environmentType": "Sandbox",
             "environmentName": "Practicas",
             "startupCompany": "CRONUS ES",
-            "startupObjectType": "Table",
-            "startupObjectId": 50100
+            //"startupObjectType": "",
+            //"startupObjectId": 
         }
     ]
 }
