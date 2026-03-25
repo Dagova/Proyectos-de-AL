@@ -1,0 +1,14 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "BC Cloud",
+            "type": "al",
+            "request": "launch",
+            "server": "https://businesscentral.dynamics.com",
+            "tenant": "f358133d-4e22-45e5-a09a-d4bde299ed4d",
+            "environment": "Production",
+            "startupObjectId": 22
+        }
+    ]
+}

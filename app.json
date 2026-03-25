@@ -1,0 +1,18 @@
+{
+  "id": "9c0a8ec5-6036-480e-844b-349c0fad1b1f",
+  "name": "Proyecto",
+  "publisher": "Default Publisher",
+  "version": "1.0.0.0",
+  "platform": "27.0.0.0",
+  "application": "27.0.0.0",
+  "runtime": "13.0",
+  "idRanges": [
+    {
+      "from": 50100,
+      "to": 50149
+    }
+  ],
+  "features": [
+    "NoImplicitWith"
+  ]
+}
