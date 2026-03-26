@@ -1,0 +1,13 @@
+Ejercicio 1 — Crear una tabla simple
+Objetivo: aprender a definir tablas en AL.
+Crea una tabla llamada CustomerFeedback con los siguientes campos:
+
+Entry No. (Integer, clave primaria, autoincremental)
+Customer No. (Code[20])
+Comment (Text[250])
+Date (Date)
+
+Requisitos:
+
+La tabla debe tener DataClassification = ToBeClassified.
+El campo Entry No. debe tener AutoIncrement = true.

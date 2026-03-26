@@ -1,0 +1,9 @@
+Ejercicio 2 — Crear una página lista
+Objetivo: aprender a mostrar una tabla en el cliente.
+Crea una List Page que muestre todos los registros de la tabla del ejercicio anterior.
+Requisitos:
+
+Nombre: Customer Feedback List
+Tipo: List
+Usa el SourceTable creado en el ejercicio 1.
+Muestra todos los campos.

@@ -1,0 +1,8 @@
+ Ejercicio 5 — Modificar una página estándar
+Objetivo: aprender extensiones de página.
+Añade un campo nuevo a la página estándar Customer Card:
+
+Campo añadido: Último comentario del cliente (Text)
+Debe mostrar el comentario más reciente desde CustomerFeedback.
+
+No hace falta persistirlo en tabla; puede ser un campo calculado.

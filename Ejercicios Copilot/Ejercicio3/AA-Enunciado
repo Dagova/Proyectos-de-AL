@@ -1,0 +1,8 @@
+Ejercicio 3 — Crear un procedimiento
+Objetivo: aprender a escribir funciones AL.
+En un Codeunit, crea un procedimiento llamado
+GetCustomerFeedbackCount(CustomerNo: Code[20]): Integer
+Este procedimiento deberá:
+
+Contar cuántos registros existen en CustomerFeedback para el nº de cliente recibido.
+Devolver el total.

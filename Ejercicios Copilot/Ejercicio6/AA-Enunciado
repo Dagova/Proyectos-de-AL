@@ -1,0 +1,8 @@
+Ejercicio 6 — Crear un report sencillo
+Objetivo: aprender a crear informes.
+Crea un Report llamado Customer Feedback Report que:
+
+Tome como DataItem la tabla CustomerFeedback.
+Agrupe por Customer No.
+Muestre: Customer No., Comment, Date.
+Ordenado por fecha descendente.

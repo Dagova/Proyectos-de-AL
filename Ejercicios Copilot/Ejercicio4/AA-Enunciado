@@ -1,0 +1,10 @@
+Ejercicio 4 — Añadir un trigger
+Objetivo: trabajar con validaciones.
+En la tabla del ejercicio 1, añade una validación en el campo Comment:
+
+Si el texto tiene menos de 5 caracteres 
+→ lanzar un error "El comentario es demasiado corto."
+
+Se crea en una carpeta a parte dentro de un codeunit para ver el flujo de
+estanciar un procedure en una tabla para verificar algo 
+y no engrosar el codigo de la tabla 
