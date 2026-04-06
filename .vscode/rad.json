@@ -1,1 +1,1 @@
-﻿{"Added":[],"Modified":[{"Kind":106,"Name":"RequestOptionsPage","Namespace":""},{"Id":50200,"Kind":13,"Name":"Customer feedback report","Namespace":""}],"Removed":[]}
+﻿{"Added":[{"Id":50152,"Kind":12,"Name":"CommentCard","Namespace":""},{"Id":50150,"Kind":10,"Name":"Comment Entry","Namespace":""},{"Id":50154,"Kind":11,"Name":"Managements","Namespace":""}],"Modified":[{"Kind":106,"Name":"RequestOptionsPage","Namespace":""},{"Id":50151,"Kind":12,"Name":"CommenTList","Namespace":""},{"Id":50200,"Kind":13,"Name":"Customer feedback report","Namespace":""}],"Removed":[]}
