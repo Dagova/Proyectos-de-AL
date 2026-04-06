@@ -10,10 +10,10 @@ page 50220 "Customer Feedback Card"
         {
             group(General)
             {
-                field("Entry No."; "Entry No.") { ApplicationArea = All; }
-                field("Customer No."; "Customer No.") { ApplicationArea = All; }
-                field(Comment; Comment) { ApplicationArea = All; }
-                field(Date; Date) { ApplicationArea = All; }
+                field("Entry No."; Rec."Entry No.") { ApplicationArea = All; }
+                field("Customer No."; Rec."Customer No.") { ApplicationArea = All; }
+                field(Comment; Rec.Comment) { ApplicationArea = All; }
+                field(Date; Rec.Date) { ApplicationArea = All; }
             }
         }
     }
@@ -22,9 +22,11 @@ page 50220 "Customer Feedback Card"
     {
         area(processing)
         {
-            action(Close; Close)
+            action(CloseFeedBack)
             {
                 ApplicationArea = All;
+                Caption = 'Close';
+                RunObject = Page 50200;
             }
         }
     }

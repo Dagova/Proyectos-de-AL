@@ -10,10 +10,7 @@ report 50200 "Customer feedback report"
         {
             DataItemTableView = Sorting("Customer No.", Date) Order(Descending);
 
-            column(CustomerNo; "Customer No.")
-            {
-                Caption = 'Customer No.';
-            }
+
             column(Comment; Comment)
             {
                 Caption = 'Comment';

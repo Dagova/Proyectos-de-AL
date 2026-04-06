@@ -11,21 +11,20 @@ page 50200 CustomerFeedbackList
         {
             repeater(group)
             {
-                field("Entry No."; 1)
+                field("Entry No."; 'Entry No.')
                 {
 
                 }
-                field("Customer No."; 2)
+                field("Customer No."; 'Customer No.')
+                {
+                    Editable = true;
+                }
+                field(Comment; 'Comment')
                 {
                     Editable = true;
 
                 }
-                field(Comment; 3)
-                {
-                    Editable = true;
-
-                }
-                field(Date; 4)
+                field(Date; 'Date')
                 {
                     Editable = true;
 
@@ -37,12 +36,12 @@ page 50200 CustomerFeedbackList
     {
         area(processing)
         {
-            action(New; New)
+            action(NewFeedback)
             {
                 ApplicationArea = All;
                 Caption = 'New';
                 Promoted = true;
-                RunObject = Page::"Customer Feedback Card";
+                RunObject = Page 50220;
             }
         }
     }
