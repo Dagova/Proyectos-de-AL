@@ -4,6 +4,7 @@ page 50151 CommentList
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = "Comment Entry";
+    InsertAllowed = false; // sirve para quitar el nuevo que viene predeterminado en la barra de acciones
 
     layout
     {

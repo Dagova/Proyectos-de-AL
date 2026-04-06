@@ -1,0 +1,97 @@
+Se realiza ejercicio donde se pueden poner comentarios se pueden ver crear y te cuenta los comentarios totales
+EJERCICIO COMPLETO: Gestión de Comentarios
+🎯 Objetivo del ejercicio
+Crear una pequeña funcionalidad para:
+
+Guardar comentarios
+Verlos en una lista
+Crear nuevos comentarios desde una acción
+Contar cuántos comentarios hay
+
+Nada de Customer, para que no mezclemos conceptos.
+
+🧩 PARTE 1 — Crear la TABLA
+📄 Tabla: Comment Entry
+Campos que debe tener:
+nº |    Campo   |  Tipo      |  Notas
+1  |  Entry No. |  Integer   |  Primary Key, AutoIncrement 
+2  |  Comment   |  Text[250] |  Obligatorio 
+3  |Created Date|  Date      |  Fecha del comentario
+
+✅ Requisitos
+
+DataClassification = ToBeClassified
+Validar que el comentario no esté vacío
+
+👉 No pongas el código aún, solo piensa cómo sería.
+
+🧩 PARTE 2 — Página LISTA
+📄 Página: Comment List
+Características
+
+Tipo: List
+SourceTable: Comment Entry
+Mostrar los 3 campos
+Editable = false
+
+👉 Desde aquí solo se consulta, no se crea.
+
+🧩 PARTE 3 — Página CARD
+📄 Página: Comment Card
+Características
+
+Tipo: Card
+SourceTable: Comment Entry
+Permite crear nuevos registros
+Al crear uno nuevo:
+
+La fecha debe ponerse automáticamente al día actual
+
+
+
+💡 Pista: usa el trigger OnInsert.
+
+🧩 PARTE 4 — Codeunit de lógica
+📄 Codeunit: Comment Management
+Debe tener este procedimiento:
+ALprocedure GetCommentCount(): IntegerMostrar más líneas
+Qué hace
+
+Cuenta cuántos comentarios hay en la tabla
+Devuelve el número total
+
+
+🧩 PARTE 5 — Acción en la LISTA
+Añade una acción en Comment List:
+🔘 Acción: Nuevo comentario
+
+Caption: New
+RunObject: la página Comment Card
+Promoted = true
+
+
+🔘 Acción: Contar comentarios
+
+Caption: Count comments
+Al pulsarla:
+
+Llama al método del Codeunit
+Muestra un Message con el total
+
+
+
+Ejemplo del resultado:
+
+"Hay 5 comentarios registrados."
+
+
+🧠 Qué conceptos practicas aquí
+✅ Tablas y campos
+✅ Primary Key y AutoIncrement
+✅ Pages List y Card
+✅ Actions
+✅ RunObject
+✅ Codeunit
+✅ Record + Count
+✅ Triggers simples
+✅ Mensajes
