@@ -1,0 +1,132 @@
+ENUNCIADO DEL EJERCICIO
+Control de aprobación de pedidos de venta por importe en Business Central (AL)
+
+Objetivo general
+Desarrollar una funcionalidad en Microsoft Dynamics 365 Business Central utilizando AL que permita controlar la aprobación de los pedidos de venta en función de su importe total, siguiendo buenas prácticas de desarrollo y la arquitectura estándar de Business Central.
+
+Descripción funcional
+La empresa quiere implantar un sistema de aprobación para pedidos de venta con las siguientes reglas:
+
+Los pedidos de venta cuyo importe total supere un límite determinado deben requerir aprobación.
+Mientras un pedido:
+
+requiera aprobación y
+no esté aprobado,
+no podrá registrarse.
+
+
+La aprobación:
+
+no será automática,
+deberá realizarse explícitamente por un usuario.
+
+
+El sistema debe registrar:
+
+si el pedido requiere aprobación,
+si está aprobado,
+quién lo aprobó,
+y cuándo fue aprobado.
+
+
+El usuario no debe poder manipular manualmente los datos técnicos de aprobación.
+
+
+Requisitos funcionales
+1. Control de aprobación
+
+Cada pedido de venta debe tener un único estado de aprobación.
+El sistema debe decidir automáticamente si un pedido requiere aprobación, basándose en su importe total.
+El usuario solo puede aprobar o no aprobar el pedido; no decide si requiere aprobación.
+La aprobación debe quedar registrada con información de auditoría.
+
+
+Requisitos técnicos
+1. Tabla personalizada: Sales Order Approval
+Crear una tabla para almacenar la información de aprobación de pedidos de venta, con las siguientes características:
+Campos mínimos obligatorios:
+
+Tipo de documento de venta
+Número de documento
+Importe del pedido
+Requiere aprobación (Boolean)
+Está aprobado (Boolean)
+Usuario que aprobó
+Fecha de aprobación
+
+Reglas técnicas:
+
+Debe existir un único registro por pedido de venta.
+La clave primaria debe identificarse mediante:
+
+Tipo de documento
+Número de documento
+
+
+No debe utilizarse un identificador autoincremental.
+La tabla debe proteger la integridad de los datos de aprobación.
+
+
+2. Páginas
+Crear las páginas necesarias para gestionar la aprobación:
+Página de lista
+
+Mostrar todos los registros de aprobación.
+Permitir identificar rápidamente pedidos pendientes de aprobación.
+Servir como punto de entrada a la página de ficha.
+No contener lógica de negocio.
+
+Página de ficha
+
+Mostrar el detalle del estado de aprobación de un pedido.
+Los campos técnicos no deben ser editables directamente.
+La aprobación no debe realizarse modificando campos manualmente.
+
+
+3. Lógica de negocio
+Crear una codeunit de gestión de aprobaciones responsable de:
+
+Calcular automáticamente si un pedido requiere aprobación.
+Actualizar el estado de aprobación cuando corresponda.
+Rellenar los campos de auditoría de forma automática.
+Centralizar toda la lógica de negocio, sin depender de las páginas.
+
+El cálculo de si un pedido requiere aprobación debe hacerse cuando cambie el importe total del pedido.
+
+4. Automatización mediante eventos
+Implementar Event Subscribers que:
+
+Escuchen los cambios relevantes en las Sales Lines.
+Recalcule automáticamente si el pedido requiere aprobación cuando:
+
+se modifique una línea de venta,
+se cambie cantidad o precio.
+
+
+Deleguen toda la lógica en la codeunit de negocio.
+No contengan lógica compleja dentro del subscriber.
+
+
+5. Control del registro de pedidos
+El sistema debe impedir el registro de pedidos que:
+
+requieran aprobación y
+no estén aprobados.
+
+Este control debe realizarse mediante eventos estándar, sin modificar código base.
+
+Resultado esperado
+Al finalizar el ejercicio:
+
+El sistema calcula automáticamente si un pedido requiere aprobación.
+Los pedidos que superan el importe límite no pueden registrarse sin aprobación.
+La aprobación queda registrada con información de auditoría.
+El diseño sigue el patrón estándar de Business Central:
+
+tablas para datos,
+páginas para presentación,
+codeunits para lógica,
+event subscribers para automatización.
+
+
+El código es limpio, mantenible y alineado con proyectos reales.

@@ -1,0 +1,101 @@
+ENUNCIADO DEL EJERCICIO
+Gestión de Bonificaciones de Clientes en Business Central (AL)
+Objetivo general
+Desarrollar una funcionalidad completa en Microsoft Dynamics 365 Business Central utilizando AL que permita gestionar bonificaciones (descuentos) por cliente y aplicarlas automáticamente en los pedidos de venta, siguiendo buenas prácticas de desarrollo y el patrón estándar de Business Central.
+
+Descripción funcional
+La empresa desea implementar un sistema de bonificaciones por cliente con las siguientes características:
+
+Cada cliente puede tener una o varias bonificaciones.
+Las bonificaciones se definen como un porcentaje de descuento.
+Una bonificación solo puede aplicarse si:
+
+Está activa.
+Es válida en la fecha actual.
+El importe de la línea alcanza un mínimo configurado.
+
+
+El descuento debe aplicarse automáticamente en las líneas de los pedidos de venta.
+Una bonificación no puede eliminarse si ya ha sido utilizada.
+
+
+Requisitos técnicos
+1. Tabla Customer Bonus
+Crear una tabla personalizada para almacenar las bonificaciones con, al menos, los siguientes campos:
+
+Código de bonificación
+Número de cliente
+Porcentaje de bonificación
+Importe mínimo
+Fecha de inicio
+Fecha de fin
+Activa
+Usada
+
+Reglas obligatorias:
+
+Validar que el porcentaje esté entre 0 y 100.
+Validar la coherencia entre fechas.
+Impedir el borrado de bonificaciones marcadas como usadas.
+Incluir una función que determine si una bonificación es válida en la fecha actual.
+
+
+2. Páginas
+Crear las páginas necesarias para la gestión de las bonificaciones:
+
+Página de lista para consultar y filtrar bonificaciones.
+Página de ficha para crear y editar bonificaciones.
+
+Requisitos:
+
+Uso de grupos lógicos.
+Protección de campos no editables cuando corresponda.
+Diseño alineado con el estándar de Business Central.
+
+
+3. Lógica de negocio
+Implementar una codeunit de gestión que:
+
+Obtenga el cliente desde el Sales Header a partir de una Sales Line.
+Busque las bonificaciones asociadas al cliente.
+Compruebe si la bonificación:
+
+Está activa.
+Es válida según la fecha.
+Cumple el importe mínimo de la línea.
+
+
+Aplique el descuento usando el campo estándar Line Discount %.
+Utilice Validate para permitir que Business Central recalcule importes automáticamente.
+
+No se deben modificar directamente campos calculados como Line Amount.
+
+4. Automatización mediante eventos
+Crear un Event Subscriber que:
+
+Escuche eventos de la tabla Sales Line (por ejemplo, al insertar una línea).
+Llame a la codeunit de gestión de bonificaciones.
+No contenga lógica de negocio propia, solo delegación.
+
+Separación de responsabilidades:
+
+Subscriber: cuándo se ejecuta la lógica.
+Codeunit de negocio: qué lógica se ejecuta.
+
+
+Resultado esperado
+Al finalizar el desarrollo:
+
+Las bonificaciones se aplican automáticamente a las líneas de pedido cuando corresponde.
+Se respetan las reglas estándar de Business Central.
+El diseño es claro, mantenible y extensible.
+El desarrollo sigue buenas prácticas profesionales de AL.
+
+
+Conceptos clave trabajados
+
+Separación de responsabilidades.
+Uso correcto de Validate.
+Gestión de eventos mediante Event Subscribers.
+Uso de FindFirst, FindSet y Reset.
+Diseño limpio de lógica de negocio en Business Central.
