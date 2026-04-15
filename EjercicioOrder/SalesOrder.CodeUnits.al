@@ -43,4 +43,15 @@ codeunit 50400 SalesOrderCodeUnits
         // 5. Guardar cambios
         SalesOrderApprovalRec.Modify();
     end;
+
+    procedure Aprobar(var ApprovalRec: Record "Sales Order Approval")
+    begin
+        if ApprovalRec.EstaAprobado then
+            exit;
+
+        ApprovalRec.EstaAprobado := true;
+        ApprovalRec.UsuarioAprobado := UserId();
+        ApprovalRec.FechaAprobacion := Today();
+        ApprovalRec.Modify();
+    end;
 }

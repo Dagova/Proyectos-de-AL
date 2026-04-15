@@ -28,8 +28,6 @@ page 50401 "Sales Order Approval Card"
                 field(RequiereAprobacion; Rec.RequiereAprobacion)
                 {
                     Editable = false;
-
-
                 }
                 field(EstaAprobado; Rec.EstaAprobado)
                 {
@@ -60,19 +58,12 @@ page 50401 "Sales Order Approval Card"
                 Image = Approve;
 
                 trigger OnAction()
-
+                var
+                    ApprovalMgt: Codeunit SalesOrderCodeUnits;
                 begin
-                    if Rec.EstaAprobado then begin
-                        Rec.UsuarioAprobado := USERID();
-                        Rec.FechaAprobacion := TODAY();
-                    end else begin
-                        Rec.UsuarioAprobado := '';
-                        Rec.FechaAprobacion := 0D;
-                    end;
+                    ApprovalMgt.Aprobar(Rec);
                 end;
-
             }
         }
     }
-
 }
